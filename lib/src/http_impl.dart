@@ -2044,8 +2044,8 @@ class _ConnectionTarget {
 
 typedef bool BadCertificateCallback(X509Certificate cr, String host, int port);
 
-class AltHttpClient extends _HttpClient {
-  AltHttpClient({SecurityContext context}) : super(context);
+class AtcHttpClient extends _HttpClient {
+  AtcHttpClient({SecurityContext context}) : super(context);
 }
 
 class _HttpClient implements HttpClient {
@@ -2092,6 +2092,7 @@ class _HttpClient implements HttpClient {
 
   Future<HttpClientRequest> open(
       String method, String host, int port, String path) {
+      print("OPENING WITH ALT HTTP ATC");
     const int hashMark = 0x23;
     const int questionMark = 0x3f;
     int fragmentStart = path.length;
