@@ -1017,7 +1017,9 @@ class _Cookie implements Cookie {
 
     for (int i = start; i < end; i++) {
       int codeUnit = newValue.codeUnits[i];
-      if (!(codeUnit == 0x21 ||
+      // [2x2x] - added codeUnit 0x20 (space) in allowed characters
+      // very basic chage... no error checking for first/last char, no double quoting etc. be careful
+      if (!(codeUnit == 0x21 || codeUnit == 0x20 ||
           (codeUnit >= 0x23 && codeUnit <= 0x2B) ||
           (codeUnit >= 0x2D && codeUnit <= 0x3A) ||
           (codeUnit >= 0x3C && codeUnit <= 0x5B) ||
